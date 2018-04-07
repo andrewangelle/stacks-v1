@@ -1,0 +1,117 @@
+@import '_variables.scss';
+
+.stacks--page {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+
+  .section-header {
+    display: flex;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    justify-content: space-between;
+
+    span {
+      cursor: pointer;
+      color: green;
+      padding: 0rem 0.5rem;
+    }
+  }
+}
+
+.stacks--inner {
+  display: flex;
+  overflow-x: auto;
+  width: 100%; // This is needed for FF < 54
+  height: 100vh;
+
+  > * {
+    flex: 0 0 auto; // 'rigid' lists
+    margin-left: $gap;
+  }
+
+  &::after {
+    content: '';
+    flex: 0 0 $gap;
+  }
+}
+
+.stack {
+  width: $stack-width;
+  height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+  box-shadow: 1px 1px 0.5px 0.5px #d7d6d8;
+
+  ul li {
+    position: relative;
+  }
+
+  > * {
+    background-color: $offwhite;
+    color: $dark;
+    padding: 0 $gap;
+  }
+
+  header {
+    position: relative;
+    line-height: $stack-header-height;
+    font-size: 16px;
+    font-weight: bold;
+    border-top-left-radius: $stack-border-radius;
+    border-top-right-radius: $stack-border-radius;
+    padding: 1rem;
+
+    span {
+      position: absolute;
+      color: red;
+      cursor: pointer;
+      right: 1rem;
+      top: 0.8rem;
+    }
+  }
+
+  footer {
+    line-height: $stack-footer-height;
+    border-bottom-left-radius: $stack-border-radius;
+    border-bottom-right-radius: $stack-border-radius;
+    color: $grey;
+  }
+
+  ul {
+    stack-style: none;
+    margin: 0;
+    max-height: calc(100% - #{$stack-header-height} - #{$stack-footer-height});
+    overflow-y: auto;
+
+    li {
+      list-style-type: none;
+      background-color: $offwhite;
+      padding: $gap;
+      margin-bottom: $gap;
+      border-radius: $card-border-radius;
+      box-shadow: 1px 1px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+
+      > i {
+        position: absolute;
+        color: red;
+        cursor: pointer;
+        right: 1rem;
+        top: 0.5rem;
+      }
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+
+      form > input {
+        border: none !important;
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "stacks",
+  "version": "1.0.0",
+  "description": "nope",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production npm run server",
+    "server": "node ./src/start.js",
+    "devServer": "nodemon src/start.js",
+    "dev": "cross-env NODE_ENV=development npm run devServer",
+    "test": "echo done"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "cross-env": "^5.1.4",
+    "db-migrate": "^0.10.7",
+    "db-migrate-pg": "^0.3.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "jsdocs": "^1.0.0",
+    "knex": "^0.14.4",
+    "moment": "^2.21.0",
+    "morgan": "^1.9.0",
+    "node-fetch": "^2.1.2",
+    "nodemon": "^1.17.2",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "resolve": "^1.6.0",
+    "rimraf": "^2.6.2",
+    "swagger-jsdoc": "^1.9.7"
+  }
+}
