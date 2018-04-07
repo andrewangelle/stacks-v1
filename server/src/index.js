@@ -23,7 +23,7 @@ dotenv.load()
 //Environment Variables
 const PRODUCTION = process.env.NODE_ENV === 'production';
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
-
+const PORT = process.env.PORT || 8080
 //Http Middleware
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))

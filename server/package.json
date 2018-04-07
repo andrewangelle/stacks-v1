@@ -1,8 +1,9 @@
 {
-  "name": "stacks",
+  "name": "stacks-api",
   "version": "1.0.0",
-  "description": "nope",
+  "description": "",
   "main": "src/index.js",
+  "repository": "https://github.com/andrewangelle/stacks-v1",
   "scripts": {
     "start": "cross-env NODE_ENV=production npm run server",
     "server": "node ./src/start.js",
@@ -10,7 +11,8 @@
     "dev": "cross-env NODE_ENV=development npm run devServer",
     "test": "echo done"
   },
-  "author": "",
+  "author": "Andrew Angelle",
+  "email": "andrewangelle@gmail.com",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",

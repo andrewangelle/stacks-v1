@@ -1,17 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+const { NODE_ENV } = process.env;
 
-const router = routerMiddleware(createHistory());
-const logger = createLogger({collapsed: true});
-
-export default function configureStore(initialState){
-  return createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware(thunk, router, logger)
-  )
-};
+if (NODE_ENV === 'production' || NODE_ENV === 'test') {
+  module.exports = require('./configureStore.prod');
+}
+else {
+  module.exports = require('./configureStore.dev');
+}
