@@ -62,6 +62,8 @@ export default class Comment extends Component {
   render() {
     const { comment } = this.props;
 
+    console.log(this.props, 'what the fuck')
+
     return (
       <section className='thread-parent comment'>
 

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
-import { Route, Router } from 'react-router'
+import { Route } from 'react-router';
+import { Router } from 'react-router-dom';
 import App from './App';
 
-export default class Root extends Component {
+class Root extends Component {
   render() {
     const { store, history } = this.props;
     return (
       <Provider store={store}>
-        <Router history={history}>
-          <Route component={App} />
+        <Router basename='/' history={history}>
+          <Route path="/" component={App} />
         </Router>
       </Provider>
     );
   }
 }
+
+export default Root

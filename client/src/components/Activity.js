@@ -20,7 +20,7 @@ export default class Activity extends Component {
     activity: PropTypes.array
   }
   componentDidMount() {
-    const parentId = this.props.location.pathname.split('/')[2]
+    const parentId = this.props.match.params.cardId
     this.props.getActivity(parentId)
   }
   render(){

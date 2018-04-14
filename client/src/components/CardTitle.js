@@ -26,7 +26,7 @@ export default class CardTitle extends Component {
   }
   componentDidMount() {
     //grab the cardId from current url
-    const cardId = this.props.location.pathname.split('/')[2]
+    const cardId = this.props.match.params.cardId
     this.props.getCard(cardId);
   }
   toggleFormCollapse(event) {

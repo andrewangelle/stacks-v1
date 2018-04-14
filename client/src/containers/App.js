@@ -17,7 +17,7 @@ import '../style/index.scss';
   isLoggedIn: state.users.isLoggedIn
 }), wrapActionCreators(UserActions))
 
-export default class App extends Component {
+class App extends Component {
   static propTypes = {
     user: PropTypes.object,
     userLoading: PropTypes.bool,
@@ -52,3 +52,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App

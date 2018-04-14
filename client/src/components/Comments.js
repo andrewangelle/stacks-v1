@@ -30,7 +30,7 @@ export default class Comments extends Component {
     replyCollapse: false
   }
   componentDidMount() {
-    const parentId = this.props.location.pathname.split('/')[2]
+    const parentId = this.props.match.params.cardId
     this.props.getComments(parentId)
   }
   toggleCollapse(event) {

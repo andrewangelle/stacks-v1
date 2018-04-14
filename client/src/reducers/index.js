@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer as routing } from 'react-router-redux';
+import { routerReducer as router } from 'react-router-redux';
 import stacks from './stacks';
 import cards from './cards';
 import users from './user';
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   lists,
   listItems,
   comments,
-  routing
+  router
 });
 
 export default rootReducer;
