@@ -19,7 +19,7 @@ export async function checkAvailability(data) {
   that would create row *only* if the row doesn't already exist in table
 */
 export async function createAccount(data) {
-  const result = await auth()
+  const result = await auth
   .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   .then(() => auth.signInWithPopup(provider))
 
@@ -40,7 +40,9 @@ export async function createAccount(data) {
 export async function loginAuth() {
   const result = await auth
   .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => auth.signInWithPopup(provider))
+  .then(() => {
+    return auth.signInWithPopup(provider)
+  })
 
   const model = {
     name: result.user.displayName,

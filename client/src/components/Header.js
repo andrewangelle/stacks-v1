@@ -12,9 +12,7 @@ export default class Header extends Component {
   }
   logout(event) {
     event.preventDefault()
-    window.location = '/'
     this.props.logoutUserWithGmail()
-    this.toggleMenu(event)
   }
   render() {
     const { user } = this.props;
