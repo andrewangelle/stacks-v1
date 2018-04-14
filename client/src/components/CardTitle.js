@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import wrapActionCreators from '../utils/wrapActionCreators';
 import { Card, Collapse, Button, Form, FormGroup, Input } from 'reactstrap';
+import { cardsSelector } from '../selectors/cards';
 import LoadingIndicator from './LoadingIndicator';
 import * as CardsActions from '../actions/cards';
 import '../style/cards.scss';
 
 @connect(state => ({
     loading: state.cards.isLoading,
-    card: Object.values(state.cards.data)[0],
+    card: cardsSelector(state)[0],
     router: state.routing
 }), wrapActionCreators({...CardsActions}))
 

@@ -8,6 +8,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Animate from '../components/Animate'
 import Project from '../components/Project.js';
 import Drop from '../components/Drop.js';
+import { projectsSelector } from '../selectors/projects';
 //eslint-disable-next-line
 import LoadingIndicator from '../components/LoadingIndicator';
 import * as UserActions from '../actions/user';
@@ -18,7 +19,7 @@ import '../style/index.scss';
 @connect((state,props) => ({
   isLoading: state.projects.isLoading,
   user: state.users.currentUser,
-  projects: Object.values(state.projects.data)
+  projects: projectsSelector(state)
 }), wrapActionCreators({...UserActions,...ProjectsActions}))
 
 export default class HomePage extends Component {

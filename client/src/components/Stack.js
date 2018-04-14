@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import wrapActionCreators from '../utils/wrapActionCreators';
 import { newId } from '../utils/helpers.js';
 import { Input } from 'reactstrap';
+import { cardsSelector } from '../selectors/cards';
 import Drag from './Drag.js';
 import * as CardsActions from '../actions/cards';
 import * as UserActions from '../actions/user';
@@ -12,7 +13,7 @@ import '../style/stacks.scss';
 
 @connect(state => ({
     user: state.users.currentUser,
-    cards: Object.values(state.cards.data),
+    cards: cardsSelector(state),
     isLoading: state.cards.isLoading
 }), wrapActionCreators({
     ...CardsActions,

@@ -47,10 +47,10 @@ export default class StacksPage extends Component {
     })
   }
   handleStackFormChange(event) {
-      this.setState({
-        ...this.state,
-        stackName: event.target.value
-      })
+    this.setState({
+      ...this.state,
+      stackName: event.target.value
+    })
   }
   onSubmitAddNewStack(event) {
     event.preventDefault();
@@ -61,6 +61,7 @@ export default class StacksPage extends Component {
       parent: this.props.match.params.projectId,
       author: this.props.user.uid
     });
+
     this.setState({
       ...this.state,
       stackName: '',

@@ -11,10 +11,7 @@ export default class Drag extends Component {
   render() {
     const { dragId, index, children } = this.props;
     return (
-      <Draggable
-        draggableId={dragId}
-        index={index}
-        >
+      <Draggable draggableId={dragId} index={index}>
         {(provided, snapshot) => (
           <div>
             <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
