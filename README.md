@@ -11,7 +11,7 @@ Try it out at https://stacks-app.herokuapp.com
 * Each stack has its own set of cards
 * In each card you can make checklists, leave comments, and see past activity for the current card
 
-<img src="./docs/stacksdocs.gif" width="300" height="300" />
+<img src="./docs/stacksdocs.gif" width="400" height="300" />
 
 
 
