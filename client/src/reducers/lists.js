@@ -25,10 +25,7 @@ export default handleActions({
     [getListsSuccess]: (state, action) => ({
         ...state,
         isLoading: false,
-        data: {
-            ...state.data,
-            ...action.payload || {}
-        }
+        data: { ...action.payload || {} }
     }),
     [getListsFailure]: (state,action) => ({
         ...state,

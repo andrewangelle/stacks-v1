@@ -9,7 +9,7 @@ export const history = createBrowserHistory();
 const router = routerMiddleware(history);
 const logger = createLogger({collapsed: true});
 
-export default function configureStore(initialState){
+export function configureStore(initialState){
   return createStore(
     rootReducer,
     initialState,

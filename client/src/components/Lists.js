@@ -15,12 +15,12 @@ import * as ListsActions from '../actions/lists';
 import * as UserActions from '../actions/user';
 
 @connect(state => ({
-    isLoading: state.lists.isLoading,
-    lists: listSelector(state),
-    user: state.users.currentUser
+  isLoading: state.lists.isLoading,
+  lists: listSelector(state),
+  user: state.users.currentUser
 }), wrapActionCreators({
-    ...ListsActions,
-    ...UserActions
+  ...ListsActions,
+  ...UserActions
 }))
 
 export default class Lists extends Component {
@@ -35,7 +35,7 @@ export default class Lists extends Component {
     formCollapse: false,
   }
   componentDidMount() {
-    const parentId = this.props.location.pathname.split('/')[2]
+    const parentId = this.props.match.params.cardId
     this.props.getLists(parentId)
   }
   toggleCollapse(event){
