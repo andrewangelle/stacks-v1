@@ -7,8 +7,9 @@ import {
     addNewProjectFailure,
     deleteProjectSuccess,
     deleteProjectFailure,
-    reorderDndProjects,
+    dragDropSuccess
 } from '../actions/projects';
+import { handleDrop } from './helpers';
 
 const initialState = {
     isLoading: false,
@@ -62,8 +63,12 @@ export default handleActions({
         ...state,
         error: action.payload
     }),
-    [reorderDndProjects]: (state,action) => ({
-        ...state,
-        data: {...action.payload}
-    })
+    [dragDropSuccess]: (state, action) => {
+        const prevOrder = Object.values(state.data).map(project => Object.assign({}, project));
+        const nextState = handleDrop(prevOrder, action.payload);
+        return {
+            ...state,
+            data: {...nextState}
+        }
+    }
 }, initialState);

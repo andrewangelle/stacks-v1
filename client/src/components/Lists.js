@@ -11,7 +11,7 @@ import '../style/cards.scss';
 import CardPageSectionHeader from './CardSectionHeader';
 import LoadingIndicator from './LoadingIndicator';
 import { listSelector } from '../selectors/lists'
-import * as ListsActions from '../actions/comments';
+import * as ListsActions from '../actions/lists';
 import * as UserActions from '../actions/user';
 
 @connect(state => ({

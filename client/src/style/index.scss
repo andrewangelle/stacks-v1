@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Passion+One:900|Montserrat:700|Work+Sans");
+@import url("https://fonts.googleapis.com/css?family=Passion+One:900|Montserrat:700|Work+Sans|Leckerli+One");
 @import '_variables.scss';
 
 body {
@@ -15,7 +15,8 @@ body {
     margin: 0;
     padding-left: 0.3rem;
     color: $offwhite !important;
-    font-family: "Passion One", sans-serif;
+    font-family: "Leckerli One", sans-serif;
+    font-size: 2.5rem;
     text-decoration: none;
     letter-spacing: 0.1rem;
   }

@@ -7,8 +7,9 @@ import {
     addNewStackFailure,
     deleteStackSuccess,
     deleteStackFailure,
-    reorderDndStacks
+    dragDropSuccess
 }  from '../actions/stacks.js';
+import { handleDrop } from './helpers';
 
 const initialState = {
     isLoading: true,
@@ -42,6 +43,7 @@ export default handleActions({
         [action.payload.id]: {
             id: action.payload.id,
             name: action.payload.name,
+            parent: action.payload.parent,
             author: action.payload.author
         }
       }
@@ -60,10 +62,12 @@ export default handleActions({
         ...state,
         error: action.payload
     }),
-    [reorderDndStacks]: (state, action) => {
+    [dragDropSuccess]: (state, action) => {
+        const prevOrder = Object.values(state.data).map(stack => Object.assign({}, stack));
+        const nextState = handleDrop(prevOrder, action.payload);
         return {
             ...state,
-            stacks: {...action.payload}
+            data: {...nextState}
         }
     }
 }, initialState);

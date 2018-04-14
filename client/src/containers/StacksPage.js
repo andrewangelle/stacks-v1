@@ -7,7 +7,8 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Animate from '../components/Animate';
 import Stack from '../components/Stack';
 import LoadingIndicator from '../components/LoadingIndicator.js';
-import { newId, reorderResults } from '../utils/helpers.js';
+import { stacksSelector } from '../selectors/stacks';
+import { newId } from '../utils/helpers.js';
 import * as StacksActions from '../actions/stacks';
 import * as UserActions from '../actions/user';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -16,8 +17,7 @@ import '../style/stacks.scss';
 @connect(state => ({
     user: state.users.currentUser,
     loading: state.stacks.isLoading,
-    stacks: Object.values(state.stacks.data),
-    dnd: Object.values(state.dnd.stacks)
+    stacks: stacksSelector(state)
 }), wrapActionCreators({
     ...StacksActions,
     ...UserActions,
@@ -72,12 +72,7 @@ export default class StacksPage extends Component {
     if (!result.destination) {
       return;
     }
-    const reorder = reorderResults(
-      this.props.dnd,
-      result.source.index,
-      result.destination.index
-    );
-    this.props.dragEnd(reorder);
+    this.props.dragEnd(result);
   }
   renderHeader() {
     return (
@@ -111,7 +106,7 @@ export default class StacksPage extends Component {
     )
   }
   renderStacks() {
-    const stacks = this.props.dnd;
+    const { stacks } = this.props;
     return (
       <Droppable droppableId="droppable" direction="horizontal">
         {(provided, snapshot) => (

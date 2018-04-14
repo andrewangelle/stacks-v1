@@ -12,7 +12,7 @@ export const addNewProjectFailure = createAction('ADD_NEW_PROJECT_FAILURE');
 export const deleteProjectRequest = createAction('DELETE_PROJECT_REQUEST');
 export const deleteProjectSuccess = createAction('DELETE_PROJECT_SUCCESS');
 export const deleteProjectFailure = createAction('DELETE_PROJECT_FAILURE');
-export const reorderDndProjects = createAction('DRAG_DROP_PROJECT_SUCCESS');
+export const dragDropSuccess = createAction('DRAG_DROP_PROJECT_SUCCESS');
 
 export function getProjects(userId) {
     return async dispatch => {
@@ -51,9 +51,8 @@ export function deleteProject(id) {
     }
 }
 
-export function dragEnd(data) {
-    return async dispatch => {
-        const results = projectsApi.normalizeAfterDnd(data)
-        dispatch(reorderDndProjects(results));
+export function dragEnd(result) {
+    return dispatch => {
+        dispatch(dragDropSuccess(result));
     }
 }

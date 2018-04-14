@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import wrapActionCreators from '../utils/wrapActionCreators';
 import PropTypes from 'prop-types';
-import { newId, reorderResults } from '../utils/helpers.js';
+import { newId } from '../utils/helpers.js';
 import { Collapse, Form, FormGroup, Input, Button } from 'reactstrap';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Animate from '../components/Animate'
@@ -63,14 +63,7 @@ export default class HomePage extends Component {
     if (!result.destination) {
       return;
     }
-
-    const reorder = reorderResults(
-      this.props.projects,
-      result.source.index,
-      result.destination.index
-    );
-
-    this.props.dragEnd(reorder);
+    this.props.dragEnd(result);
   }
   renderHeader(){
     return (

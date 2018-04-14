@@ -12,7 +12,7 @@ export const addNewStackFailure = createAction('ADD_NEW_STACK_FAILURE');
 export const deleteStackRequest = createAction('DELETE_STACK_REQUEST');
 export const deleteStackSuccess = createAction('DELETE_STACKS_SUCCESS');
 export const deleteStackFailure = createAction('DELETE_STACKS_FAILURE');
-export const reorderDndStacks = createAction('DRAG_DROP_STACK_SUCCESS');
+export const dragDropSuccess = createAction('DRAG_DROP_STACK_SUCCESS');
 
 export function getStacks(data){
     return async dispatch => {
@@ -52,9 +52,8 @@ export function deleteStack(data) {
     }
 }
 
-export function dragEnd(data) {
-    return async dispatch => {
-        const results = stacksApi.normalizeAfterDnd(data)
-        dispatch(reorderDndStacks(results));
+export function dragEnd(result) {
+    return dispatch => {
+        dispatch(dragDropSuccess(result));
     }
 }

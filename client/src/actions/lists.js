@@ -13,7 +13,7 @@ export const addListActivitySuccess = createAction('ADD_LIST_ACTIVITY_SUCCESS');
 export const deleteListRequest = createAction('DELETE_LIST_REQUEST');
 export const deleteListSuccess = createAction('DELETE_LIST_SUCCESS');
 export const deleteListFailure = createAction('DELETE_LIST_FAILURE');
-export const dragDropSuccess = createAction('DRAG_DROP_SUCCESS');
+export const dragDropSuccess = createAction('DRAG_DROP_LIST_SUCCESS');
 
 export function getLists(data) {
     return async dispatch => {
@@ -56,10 +56,8 @@ export function deleteList(data) {
     }
 }
 
-export function dragEnd(data) {
-    return async dispatch => {
-        const results = listsApi.normalizeAfterDnd(data)
-        dispatch(dragDropSuccess(results));
-
+export function dragEnd(result) {
+    return dispatch => {
+        dispatch(dragDropSuccess(result));
     }
 }

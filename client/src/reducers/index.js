@@ -9,10 +9,8 @@ import comments from './comments';
 import projects from './projects';
 import activity from './activity';
 import signup from './signup';
-import dnd from './dnd';
 
 const rootReducer = combineReducers({
-  dnd,
   activity,
   stacks,
   cards,

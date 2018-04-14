@@ -9,6 +9,7 @@ import {
     deleteListFailure,
     dragDropSuccess
 }  from '../actions/lists.js';
+import { handleDrop } from './helpers';
 
 const initialState = {
     isLoading: true,
@@ -61,10 +62,12 @@ export default handleActions({
         ...state,
         error: action.payload
     }),
-    [dragDropSuccess]: (state, action) => ({
-        ...state,
-        data: {
-            ...action.payload || {}
+    [dragDropSuccess]: (state, action) => {
+        const prevOrder = Object.values(state.data).map(list => Object.assign({}, list));
+        const nextState = handleDrop(prevOrder, action.payload);
+        return {
+            ...state,
+            data: {...nextState}
         }
-    })
+    }
 }, initialState);

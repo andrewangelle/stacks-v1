@@ -1,4 +1,4 @@
-import { createSelector, createSelectorCreator, defaultMemoize } from 'reselect'
+import { createSelector } from 'reselect'
 
 const getStacks = state => state.stacks.data
 
